@@ -2,25 +2,20 @@ package com.pluralsight.program;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ReceiptFileManager {
-    public void writeNewReceipt(String receipt) {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
-        String formattedDate = localDateTime.format(formatter);
+    public static void writeNewReceipt(String receipt) {
+        String fileName = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()) + ".txt";
 
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(formattedDate + ".txt"));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
 
             bufferedWriter.write(receipt);
 
             System.out.println("Thank you for your order, receipt saved to file.");
-            bufferedWriter.close();
         } catch (Exception e) {
-            System.out.println(localDateTime.toString());
-            e.printStackTrace();
             System.err.println("ERROR: Cannot write to file.");
         }
     }

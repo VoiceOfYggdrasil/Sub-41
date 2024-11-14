@@ -3,8 +3,11 @@ package com.pluralsight.UI;
 import com.pluralsight.addOns.Chips;
 import com.pluralsight.addOns.Drinks;
 import com.pluralsight.program.Order;
+import com.pluralsight.program.ReceiptFileManager;
 import com.pluralsight.sandwich.*;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -345,6 +348,17 @@ public class UserInterface {
         System.out.println(orderSummary);
 
         System.out.print("Confirm Order? (Y or N): ");
-        
+        String confirm = scanner.nextLine().trim().toLowerCase();
+
+        if (confirm.equalsIgnoreCase("y")) {
+            ReceiptFileManager.writeNewReceipt(orderSummary);
+            displayMainScreen();
+        } else if (confirm.equalsIgnoreCase("n")) {
+            System.out.println("Order Canceled. No Worries.");
+            displayOrderScreen();
+        } else {
+            System.out.println("ERROR: Invalid Choice.");
+            displayCheckoutScreen();
+        }
     }
 }
