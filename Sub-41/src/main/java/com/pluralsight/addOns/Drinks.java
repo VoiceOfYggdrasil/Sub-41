@@ -3,18 +3,33 @@ package com.pluralsight.addOns;
 import com.pluralsight.program.IPrice;
 
 public class Drinks implements IPrice {
-    private String type;
+    private String size;
+    private String flavor;
 
-    public Drinks(String type) {
-        this.type = type;
+    public Drinks(String size, String flavor) {
+        this.size = size;
+        this.flavor = flavor;
     }
 
-    public String getType() {
-        return type;
+    public String getSize() {
+        return size;
+    }
+
+    public String getFlavor() {
+        return flavor;
     }
 
     @Override
     public double getPrice() {
-        return 1.5;
+        switch (size) {
+            case "Small":
+                return 2.00;
+            case "Medium":
+                return 2.50;
+            case "Large":
+                return 3.00;
+            default:
+                return 2.00;
+        }
     }
 }
