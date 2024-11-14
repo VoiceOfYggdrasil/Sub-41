@@ -262,14 +262,89 @@ public class UserInterface {
     }
 
     public Drinks chooseDrink() {
+        System.out.println("1. Small");
+        System.out.println("2. Medium");
+        System.out.println("3. Large");
 
+        String size;
+        int sizeChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (sizeChoice) {
+            case 1 -> size = "Small";
+            case 2 -> size = "Medium";
+            case 3 -> size = "Large";
+            default -> {
+                System.out.println("ERROR: Invalid Choice.");
+                size = "Small";
+            }
+        }
+
+        System.out.println("DRINKS FOR THE DRINK GOD:");
+        System.out.println("1. RC Cola");
+        System.out.println("2. Sprite");
+        System.out.println("3. Barq's");
+        System.out.println("4. Arizona");
+        System.out.println("5. Vitamin Water");
+        System.out.println("6. Red Bull");
+        System.out.println("7. Water");
+        System.out.println("PRESS '0' TO END SELECTION");
+
+        String type;
+        int typeChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (typeChoice) {
+            case 1 -> type = "RC Cola";
+            case 2 -> type = "Sprite";
+            case 3 -> type = "Barq's";
+            case 4 -> type = "Arizona";
+            case 5 -> type = "Vitamin Water";
+            case 6 -> type = "Red Bull";
+            case 7 -> type = "Water";
+            default -> {
+                System.out.println("ERROR: Invalid Choice.");
+                type = "Water";
+            }
+        }
+        return new Drinks(size, type);
     }
 
     public Chips chooseChips() {
+        System.out.println("CHIPS FOR THE STARCH THRONE:");
+        System.out.println("1. Lay's");
+        System.out.println("2. Snyder's");
+        System.out.println("3. UTZ");
+        System.out.println("4. Cheetos");
+        System.out.println("5. Cheez-Its");
+        System.out.println("6. Pretzels");
+        System.out.println("7. Sun Chips");
+        System.out.println("PRESS '0' TO END SELECTION");
 
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        return switch (choice) {
+            case 1 -> new Chips("Lay's");
+            case 2 -> new Chips("Snyder's");
+            case 3 -> new Chips("UTZ");
+            case 4 -> new Chips("Cheetos");
+            case 5 -> new Chips("Cheez-Its");
+            case 6 -> new Chips("Pretzels");
+            case 7 -> new Chips("Sun Chips");
+            default -> {
+                System.out.println("ERROR: Invalid Choice.");
+                yield new Chips("Lay's");
+            }
+        };
     }
 
     public void displayCheckoutScreen() {
+        System.out.println("Checkout Summary:");
+        String orderSummary = currentOrder.newOrderSummary();
+        System.out.println(orderSummary);
 
+        System.out.print("Confirm Order? (Y or N): ");
+        
     }
 }
