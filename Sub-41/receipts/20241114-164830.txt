@@ -1,0 +1,22 @@
+Order Summary:
+Sandwich 1:
+	Bread: italian
+	Size: 8"
+	Toasted: Yes
+	Toppings:
+		- Chicken
+		- Bacon
+		- Ranch
+		- Onions
+	Price: $11.0
+
+Drink 1:
+	Size: Medium
+	Flavor: RC Cola
+	Price: $2.5
+
+Chips 1:
+	Type: Snyder's
+	Price: $1.5
+
+Total Price: $15.0

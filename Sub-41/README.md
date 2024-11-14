@@ -2,14 +2,15 @@
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
+SUB-41 is a sandwich shop application, that allows users to order a sandwich (plus extras), mimicking a real life ordering kiosk. Users are able to build 1 or more sandwiches, add drinks and chips, and check out, ultimately saving the receipt to a new file after every transaction.
 
-![Class Diagram](path/to/your/class_diagram.png)
+#### Class Diagram
+![Class Diagram](imgs/ClassDiagram.png)
 
 ## User Stories
 
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+- As a User, I want to be able to input my data, so that the application can process it accordingly.
+- As a User, I want to receive immediate feedback, so I can understand what to do next.
 - As a User, I want to be able to navigate a welcoming User Interface, so that I may have a good user experience when ordering my food.
 - As a User, I want to be able to add a variety of toppings to my sandwich, so that I may have exactly what I want to eat.
 - As a User, I want to have the option to add extras, like drinks and chips to my order, so that I can have a full meal.
@@ -42,14 +43,24 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-![Application Screenshot](path/to/your/screenshot.png)
+#### Ordering the Sandwich
+![Order Sandwich 1](imgs/OrderSandwich1.png)
+![Order Sandwich 2](imgs/OrderSandwich2.png)
+
+#### Adding Chips and Drink
+![Order Extras 1](imgs/OrderExtras1.png)
+![Order Extras 2](imgs/OrderExtras2.png)
+
+#### Order Summary
+![Order Summary](imgs/OrderSummary.png)
 
 ## Future Work
 
 Here's a few ideas I have for future additions:
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
+- Adding Specialty Sandwiches that are pre-built.
+- Putting each submenu into their own classes to clean up the UI.
+- Converting the idea of a sandwich shop into other contexts (other restaurants, theaters, etc...)
 
 ## Resources
 
