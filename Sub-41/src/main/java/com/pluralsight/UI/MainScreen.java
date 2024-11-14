@@ -1,4 +1,4 @@
-package com.pluralsight.UI;
+/*package com.pluralsight.UI;
 
 import java.util.Scanner;
 
@@ -30,4 +30,4 @@ public class MainScreen {
             }
         }
     }
-}
+}*/

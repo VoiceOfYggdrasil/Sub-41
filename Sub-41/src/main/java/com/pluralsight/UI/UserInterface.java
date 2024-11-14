@@ -4,9 +4,11 @@ import com.pluralsight.addOns.Chips;
 import com.pluralsight.addOns.Drinks;
 import com.pluralsight.program.Order;
 import com.pluralsight.sandwich.Bread;
+import com.pluralsight.sandwich.Meat;
 import com.pluralsight.sandwich.Sandwich;
 import com.pluralsight.sandwich.Toppings;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -94,19 +96,87 @@ public class UserInterface {
     }
 
     public String chooseSandwichSize() {
+        System.out.println("How big of a sandwich are we talking?");
+        System.out.println("1. 4\"");
+        System.out.println("2. 8\"");
+        System.out.println("3. 12\"");
 
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        return switch (choice) {
+            case 1 -> "4\"";
+            case 2 -> "8\"";
+            case 3 -> "12\"";
+            default -> {
+                System.out.println("ERROR: Invalid Choice.");
+                yield "4\"";
+            }
+        };
     }
 
     public String chooseBread() {
+        System.out.println("Let's get this bread (literally):");
+        System.out.println("1. Italian");
+        System.out.println("2. Multigrain");
+        System.out.println("3. Rye");
+        System.out.println("4. Pretzel");
+        System.out.println("5. Flatbread");
+        System.out.println("6. Ciabatta");
 
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        return switch (choice) {
+            case 1 -> "italian";
+            case 2 -> "multigrain";
+            case 3 -> "rye";
+            case 4 -> "pretzel";
+            case 5 -> "flatbread";
+            case 6 -> "ciabatta";
+            default -> {
+                System.out.println("ERROR: Invalid Choice.");
+                yield "italian";
+            }
+        };
     }
 
     public Boolean chooseToast() {
+        System.out.println("Anakin or Vader (toasted)?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
 
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        return choice == 1;
     }
 
     public List<Toppings> chooseMeat() {
+        List<Toppings> meats = new ArrayList<>();
+        System.out.println("WE HAVE THE MEATS (don't sue me please):");
+        System.out.println("1. Steak");
+        System.out.println("2. Chicken");
+        System.out.println("3. Turkey");
+        System.out.println("4. Brisket");
+        System.out.println("5. Deli");
+        System.out.println("PRESS '0' TO END SELECTION");
 
+        while (true) {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1 -> meats.add(new Meat("Steak"));
+                case 2 -> meats.add(new Meat("Chicken"));
+                case 3 -> meats.add(new Meat("Turkey"));
+                case 4 -> meats.add(new Meat("Brisket"));
+                case 5 -> meats.add(new Meat("Deli"));
+                case 0 -> { return meats; }
+                default -> System.out.println("ERROR: Invalid Choice.");
+                }
+            System.out.println("GET THEM MEATS (or type '0' to finish):");
+        }
     }
 
     public List<Toppings> chooseCheese() {
