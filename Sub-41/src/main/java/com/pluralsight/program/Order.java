@@ -77,10 +77,4 @@ public class Order {
         summary.append("Total Price: $").append(getTotalPrice()).append("\n");
         return summary.toString();
     }
-
-    public void checkOut(){
-        String receipt = newOrderSummary();
-
-        ReceiptFileManager.writeNewReceipt(receipt);
-    }
 }

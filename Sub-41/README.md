@@ -10,6 +10,12 @@ Briefly describe what this Java console application does. Mention its purpose an
 
 - As a user, I want to be able to input my data, so that the application can process it accordingly.
 - As a user, I want to receive immediate feedback, so I can understand what to do next.
+- As a User, I want to be able to navigate a welcoming User Interface, so that I may have a good user experience when ordering my food.
+- As a User, I want to be able to add a variety of toppings to my sandwich, so that I may have exactly what I want to eat.
+- As a User, I want to have the option to add extras, like drinks and chips to my order, so that I can have a full meal.
+- As a User, I want the ability to add multiples of every item, so that I can order food for multiple people if need be.
+- As a User, I want to be able to cancel my order and start over or exit, so that I can change my mind if I want to.
+- As an Owner, I want each receipt to be saved as its own file, so that I can keep track of transactions and do file management behind the scenes.
 
 ## Setup
 
