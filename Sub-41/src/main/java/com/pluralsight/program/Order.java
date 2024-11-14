@@ -3,6 +3,7 @@ package com.pluralsight.program;
 import com.pluralsight.addOns.Chips;
 import com.pluralsight.addOns.Drinks;
 import com.pluralsight.sandwich.Sandwich;
+import com.pluralsight.sandwich.Toppings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,11 +47,35 @@ public class Order {
         int numOfSandwich = 1;
         for (Sandwich sandwich : sandwiches) {
             summary.append("Sandwich ").append(numOfSandwich++).append(":\n")
-                    .append(" Bread: ").append(sandwich.getBread().getType()).append("\n")
-                    .append(" Size: ").append(sandwich.getSize()).append("\n")
-                    .append(" Toasted: ").append(sandwich.isToasted() ? "Yes" : "No").append("\n")
-                    .append(" Toppings:\n");
+                    .append("\tBread: ").append(sandwich.getBread().getType()).append("\n")
+                    .append("\tSize: ").append(sandwich.getSize()).append("\n")
+                    .append("\tToasted: ").append(sandwich.isToasted() ? "Yes" : "No").append("\n")
+                    .append("\tToppings:\n");
+
+            for (Toppings topping : sandwich.getToppings()) {
+                summary.append("\t\t- ").append(topping.getType()).append("\n");
+            }
+
+            summary.append("\tPrice: $").append(sandwich.getPrice()).append("\n\n");
         }
+
+        int numOfDrink = 1;
+        for (Drinks drink : drinks) {
+            summary.append("Drink ").append(numOfDrink++).append(":\n")
+                    .append("\tSize: ").append(drink.getSize()).append("\n")
+                    .append("\tFlavor: ").append(drink.getFlavor()).append("\n")
+                    .append("\tPrice: $").append(drink.getPrice()).append("\n\n");
+        }
+
+        int numOfChips = 1;
+        for (Chips chip : chips) {
+            summary.append("Chips ").append(numOfChips++).append(":\n")
+                    .append("\tType: ").append(chip.getType()).append("\n")
+                    .append("\tPrice: $").append(chip.getPrice()).append("\n\n");
+        }
+
+        summary.append("Total Price: $").append(getTotalPrice()).append("\n");
+        return summary.toString();
     }
 
     public void checkOut(){

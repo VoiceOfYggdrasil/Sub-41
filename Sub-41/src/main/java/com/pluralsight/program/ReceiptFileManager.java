@@ -16,6 +16,7 @@ public class ReceiptFileManager {
 
             bufferedWriter.write(receipt);
 
+            System.out.println("Thank you for your order, receipt saved to file.");
             bufferedWriter.close();
         } catch (Exception e) {
             System.out.println(localDateTime.toString());
