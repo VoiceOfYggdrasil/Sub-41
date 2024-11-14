@@ -11,5 +11,5 @@ public abstract class Toppings {
         return type;
     }
 
-    public abstract double calculatePrice(int size);
+    public abstract double calculatePrice(String size);
 }

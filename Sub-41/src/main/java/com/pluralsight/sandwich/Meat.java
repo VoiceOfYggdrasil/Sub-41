@@ -6,7 +6,7 @@ public class Meat extends Toppings{
     }
 
     @Override
-    public double calculatePrice(int size) {
-        return .75 * (size / 4);
+    public double calculatePrice(String size) {
+        return ((double) size / 4);
     }
 }

@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich implements com.pluralsight.program.IPrice {
-    private String bread;
-    private int size;
+    private Bread bread;
+    private String size;
     private List<Toppings> toppings;
     private boolean isToasted;
 
-    public Sandwich(String bread, int size, List<Toppings> toppings, boolean isToasted) {
+    public Sandwich(Bread bread, String size, List<Toppings> toppings, boolean isToasted) {
         this.bread = bread;
         this.size = size;
         this.toppings = new ArrayList<>();
         this.isToasted = isToasted;
     }
 
-    public String getBread() {
+    public Bread getBread() {
         return bread;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
@@ -32,13 +32,17 @@ public class Sandwich implements com.pluralsight.program.IPrice {
         return isToasted;
     }
 
+    public void addToppings(List<Toppings> toppings) {
+        this.toppings.addAll(toppings);
+    }
+
     private double sandwichPriceSize() {
         switch (size) {
-            case 4:
+            case "4":
                 return 5.50;
-            case 8:
+            case "8":
                 return 7.00;
-            case 12:
+            case "12":
                 return 8.50;
             default:
                 return 5.50;
@@ -49,7 +53,7 @@ public class Sandwich implements com.pluralsight.program.IPrice {
     public double getPrice() {
         double totalPrice = sandwichPriceSize();
         for (Toppings topping : toppings) {
-            totalPrice += topping.calculatePrice(size);
+            totalPrice += topping.calculatePrice(Integer.parseInt(size));
         }
         return totalPrice;
     }

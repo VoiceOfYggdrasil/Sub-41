@@ -46,7 +46,10 @@ public class Order {
         int numOfSandwich = 1;
         for (Sandwich sandwich : sandwiches) {
             summary.append("Sandwich ").append(numOfSandwich++).append(":\n")
-                    .append(" Bread: ").append(sandwich.getBread())
+                    .append(" Bread: ").append(sandwich.getBread().getType()).append("\n")
+                    .append(" Size: ").append(sandwich.getSize()).append("\n")
+                    .append(" Toasted: ").append(sandwich.isToasted() ? "Yes" : "No").append("\n")
+                    .append(" Toppings:\n");
         }
     }
 
