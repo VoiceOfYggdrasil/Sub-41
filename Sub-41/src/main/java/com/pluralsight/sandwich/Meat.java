@@ -7,6 +7,15 @@ public class Meat extends Toppings{
 
     @Override
     public double calculatePrice(String size) {
-        return ((double) size / 4);
+        switch (size) {
+            case "4\"":
+                return 1;
+            case "8\"":
+                return 2;
+            case "12\n":
+                return 3;
+            default:
+                return 1;
+        }
     }
 }

@@ -53,7 +53,7 @@ public class Sandwich implements com.pluralsight.program.IPrice {
     public double getPrice() {
         double totalPrice = sandwichPriceSize();
         for (Toppings topping : toppings) {
-            totalPrice += topping.calculatePrice(Integer.parseInt(size));
+            totalPrice += topping.calculatePrice(size);
         }
         return totalPrice;
     }
