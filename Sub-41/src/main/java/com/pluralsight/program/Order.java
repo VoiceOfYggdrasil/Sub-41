@@ -40,6 +40,8 @@ public class Order {
     }
 
     public void checkOut(){
+        ReceiptFileManager receiptFileManager = new ReceiptFileManager();
 
+        receiptFileManager.writeNewReceipt(receiptFileManager.printReceipt(this));
     }
 }
