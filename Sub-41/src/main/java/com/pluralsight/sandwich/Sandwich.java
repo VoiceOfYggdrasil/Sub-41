@@ -9,7 +9,7 @@ public class Sandwich implements com.pluralsight.program.IPrice {
     private List<Toppings> toppings;
     private boolean isToasted;
 
-    public Sandwich(Bread bread, String size, List<Toppings> toppings, boolean isToasted) {
+    public Sandwich(Bread bread, String size, boolean isToasted) {
         this.bread = bread;
         this.size = size;
         this.toppings = new ArrayList<>();
@@ -38,11 +38,11 @@ public class Sandwich implements com.pluralsight.program.IPrice {
 
     private double sandwichPriceSize() {
         switch (size) {
-            case "4":
+            case "4\"":
                 return 5.50;
-            case "8":
+            case "8\"":
                 return 7.00;
-            case "12":
+            case "12\"":
                 return 8.50;
             default:
                 return 5.50;
