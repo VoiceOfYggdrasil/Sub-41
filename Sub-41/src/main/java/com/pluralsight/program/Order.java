@@ -39,6 +39,17 @@ public class Order {
         return total;
     }
 
+    public String newOrderSummary() {
+        StringBuilder summary = new StringBuilder();
+        summary.append("Order Summary:\n");
+
+        int numOfSandwich = 1;
+        for (Sandwich sandwich : sandwiches) {
+            summary.append("Sandwich ").append(numOfSandwich++).append(":\n")
+                    .append(" Bread: ").append(sandwich.getBread())
+        }
+    }
+
     public void checkOut(){
         ReceiptFileManager receiptFileManager = new ReceiptFileManager();
 

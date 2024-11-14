@@ -1,5 +1,6 @@
 package com.pluralsight.sandwich;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich implements com.pluralsight.program.IPrice {
@@ -11,7 +12,7 @@ public class Sandwich implements com.pluralsight.program.IPrice {
     public Sandwich(String bread, int size, List<Toppings> toppings, boolean isToasted) {
         this.bread = bread;
         this.size = size;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>();
         this.isToasted = isToasted;
     }
 
