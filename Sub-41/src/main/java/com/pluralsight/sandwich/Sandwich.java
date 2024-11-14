@@ -6,7 +6,7 @@ import java.util.List;
 public class Sandwich implements com.pluralsight.program.IPrice {
     private Bread bread;
     private String size;
-    private List<Toppings> toppings;
+    private List<Topping> toppings;
     private boolean isToasted;
 
     public Sandwich(Bread bread, String size, boolean isToasted) {
@@ -24,7 +24,7 @@ public class Sandwich implements com.pluralsight.program.IPrice {
         return size;
     }
 
-    public List<Toppings> getToppings() {
+    public List<Topping> getToppings() {
         return toppings;
     }
 
@@ -32,7 +32,7 @@ public class Sandwich implements com.pluralsight.program.IPrice {
         return isToasted;
     }
 
-    public void addToppings(List<Toppings> toppings) {
+    public void addToppings(List<Topping> toppings) {
         this.toppings.addAll(toppings);
     }
 
@@ -52,7 +52,7 @@ public class Sandwich implements com.pluralsight.program.IPrice {
     @Override
     public double getPrice() {
         double totalPrice = sandwichPriceSize();
-        for (Toppings topping : toppings) {
+        for (Topping topping : toppings) {
             totalPrice += topping.calculatePrice(size);
         }
         return totalPrice;

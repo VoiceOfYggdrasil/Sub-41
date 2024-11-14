@@ -1,7 +1,7 @@
 package com.pluralsight.sandwich;
 
-public class RegularToppings extends Toppings{
-    public RegularToppings(String type) {
+public class RegularTopping extends Topping {
+    public RegularTopping(String type) {
         super(type);
     }
 

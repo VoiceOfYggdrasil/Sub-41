@@ -2,11 +2,11 @@ package com.pluralsight.addOns;
 
 import com.pluralsight.program.IPrice;
 
-public class Drinks implements IPrice {
+public class Drink implements IPrice {
     private String size;
     private String flavor;
 
-    public Drinks(String size, String flavor) {
+    public Drink(String size, String flavor) {
         this.size = size;
         this.flavor = flavor;
     }

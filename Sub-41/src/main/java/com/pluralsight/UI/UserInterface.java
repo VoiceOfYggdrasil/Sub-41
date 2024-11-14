@@ -1,13 +1,11 @@
 package com.pluralsight.UI;
 
 import com.pluralsight.addOns.Chips;
-import com.pluralsight.addOns.Drinks;
+import com.pluralsight.addOns.Drink;
 import com.pluralsight.program.Order;
 import com.pluralsight.program.ReceiptFileManager;
 import com.pluralsight.sandwich.*;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,10 +13,6 @@ import java.util.Scanner;
 public class UserInterface {
     private Order currentOrder;
     private Scanner scanner = new Scanner(System.in);
-
-    public UserInterface() {
-        this.currentOrder = new Order();
-    }
 
     public void startProgram() {
         displayMainScreen();
@@ -36,6 +30,7 @@ public class UserInterface {
             newOrder();
         } else if (choice == 2) {
             System.out.println("Thank you for stopping by!");
+            System.exit(0);
         } else {
             System.out.println("ERROR: Invalid Choice.");
             displayMainScreen();
@@ -152,8 +147,8 @@ public class UserInterface {
         return choice == 1;
     }
 
-    public List<Toppings> chooseMeat() {
-        List<Toppings> meats = new ArrayList<>();
+    public List<Topping> chooseMeat() {
+        List<Topping> meats = new ArrayList<>();
         System.out.println("WE HAVE THE MEATS (don't sue me please):");
         System.out.println("1. Steak");
         System.out.println("2. Chicken");
@@ -181,8 +176,8 @@ public class UserInterface {
         }
     }
 
-    public List<Toppings> chooseCheese() {
-        List<Toppings> cheeses = new ArrayList<>();
+    public List<Topping> chooseCheese() {
+        List<Topping> cheeses = new ArrayList<>();
         System.out.println("CHEEEEEEEEEESE, Gromit:");
         System.out.println("1. American");
         System.out.println("2. Swiss");
@@ -208,8 +203,8 @@ public class UserInterface {
         }
     }
 
-    public List<Toppings> chooseSauce() {
-        List<Toppings> sauces = new ArrayList<>();
+    public List<Topping> chooseSauce() {
+        List<Topping> sauces = new ArrayList<>();
         System.out.println("Sauces. For when you want your sandwich to be wetter:");
         System.out.println("1. Aioli");
         System.out.println("2. Thousand Island");
@@ -223,11 +218,11 @@ public class UserInterface {
             scanner.nextLine();
 
             switch (choice) {
-                case 1 -> sauces.add(new Sauces("Aioli"));
-                case 2 -> sauces.add(new Sauces("Thousand Island"));
-                case 3 -> sauces.add(new Sauces("Oil"));
-                case 4 -> sauces.add(new Sauces("Dijon Mustard"));
-                case 5 -> sauces.add(new Sauces("Ranch"));
+                case 1 -> sauces.add(new Sauce("Aioli"));
+                case 2 -> sauces.add(new Sauce("Thousand Island"));
+                case 3 -> sauces.add(new Sauce("Oil"));
+                case 4 -> sauces.add(new Sauce("Dijon Mustard"));
+                case 5 -> sauces.add(new Sauce("Ranch"));
                 case 0 -> { return sauces; }
                 default -> System.out.println("ERROR: Invalid Choice.");
             }
@@ -235,8 +230,8 @@ public class UserInterface {
         }
     }
 
-    public List<Toppings> chooseRegTopping() {
-        List<Toppings> regToppings = new ArrayList<>();
+    public List<Topping> chooseRegTopping() {
+        List<Topping> regToppings = new ArrayList<>();
         System.out.println("Free Toppings (ya cheapskate):");
         System.out.println("1. Lettuce (Not Shredded)");
         System.out.println("2. Tomatoes");
@@ -251,12 +246,12 @@ public class UserInterface {
             scanner.nextLine();
 
             switch (choice) {
-                case 1 -> regToppings.add(new RegularToppings("Lettuce"));
-                case 2 -> regToppings.add(new RegularToppings("Tomatoes"));
-                case 3 -> regToppings.add(new RegularToppings("Onions"));
-                case 4 -> regToppings.add(new RegularToppings("Spinach"));
-                case 5 -> regToppings.add(new RegularToppings("Mushrooms"));
-                case 6 -> regToppings.add(new RegularToppings("Pickles"));
+                case 1 -> regToppings.add(new RegularTopping("Lettuce"));
+                case 2 -> regToppings.add(new RegularTopping("Tomatoes"));
+                case 3 -> regToppings.add(new RegularTopping("Onions"));
+                case 4 -> regToppings.add(new RegularTopping("Spinach"));
+                case 5 -> regToppings.add(new RegularTopping("Mushrooms"));
+                case 6 -> regToppings.add(new RegularTopping("Pickles"));
                 case 0 -> { return regToppings; }
                 default -> System.out.println("ERROR: Invalid Choice.");
             }
@@ -264,7 +259,7 @@ public class UserInterface {
         }
     }
 
-    public Drinks chooseDrink() {
+    public Drink chooseDrink() {
         System.out.println("1. Small");
         System.out.println("2. Medium");
         System.out.println("3. Large");
@@ -310,7 +305,7 @@ public class UserInterface {
                 type = "Water";
             }
         }
-        return new Drinks(size, type);
+        return new Drink(size, type);
     }
 
     public Chips chooseChips() {

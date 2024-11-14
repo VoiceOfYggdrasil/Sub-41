@@ -1,23 +1,23 @@
 package com.pluralsight.program;
 
 import com.pluralsight.addOns.Chips;
-import com.pluralsight.addOns.Drinks;
+import com.pluralsight.addOns.Drink;
 import com.pluralsight.sandwich.Sandwich;
-import com.pluralsight.sandwich.Toppings;
+import com.pluralsight.sandwich.Topping;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
     private List<Sandwich> sandwiches = new ArrayList<>();
-    private List<Drinks> drinks = new ArrayList<>();
+    private List<Drink> drinks = new ArrayList<>();
     private List<Chips> chips = new ArrayList<>();
 
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
     }
 
-    public void addDrink(Drinks drink) {
+    public void addDrink(Drink drink) {
         drinks.add(drink);
     }
 
@@ -31,7 +31,7 @@ public class Order {
         for (Sandwich sandwich : sandwiches) {
             total += sandwich.getPrice();
         }
-        for (Drinks drink : drinks) {
+        for (Drink drink : drinks) {
             total += drink.getPrice();
         }
         for (Chips chip : chips) {
@@ -52,7 +52,7 @@ public class Order {
                     .append("\tToasted: ").append(sandwich.isToasted() ? "Yes" : "No").append("\n")
                     .append("\tToppings:\n");
 
-            for (Toppings topping : sandwich.getToppings()) {
+            for (Topping topping : sandwich.getToppings()) {
                 summary.append("\t\t- ").append(topping.getType()).append("\n");
             }
 
@@ -60,7 +60,7 @@ public class Order {
         }
 
         int numOfDrink = 1;
-        for (Drinks drink : drinks) {
+        for (Drink drink : drinks) {
             summary.append("Drink ").append(numOfDrink++).append(":\n")
                     .append("\tSize: ").append(drink.getSize()).append("\n")
                     .append("\tFlavor: ").append(drink.getFlavor()).append("\n")
@@ -79,8 +79,8 @@ public class Order {
     }
 
     public void checkOut(){
-        ReceiptFileManager receiptFileManager = new ReceiptFileManager();
+        String receipt = newOrderSummary();
 
-        receiptFileManager.writeNewReceipt(receiptFileManager.printReceipt(this));
+        ReceiptFileManager.writeNewReceipt(receipt);
     }
 }

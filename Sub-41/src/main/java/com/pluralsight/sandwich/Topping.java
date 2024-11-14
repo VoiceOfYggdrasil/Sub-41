@@ -1,9 +1,9 @@
 package com.pluralsight.sandwich;
 
-public abstract class Toppings {
+public abstract class Topping {
     private String type;
 
-    public Toppings(String type) {
+    public Topping(String type) {
         this.type = type;
     }
 

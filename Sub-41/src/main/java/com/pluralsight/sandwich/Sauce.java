@@ -1,7 +1,7 @@
 package com.pluralsight.sandwich;
 
-public class Sauces extends Toppings{
-    public Sauces(String type) {
+public class Sauce extends Topping {
+    public Sauce(String type) {
         super(type);
     }
 

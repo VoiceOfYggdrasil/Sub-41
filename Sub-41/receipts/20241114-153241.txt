@@ -1,0 +1,14 @@
+Order Summary:
+Sandwich 1:
+	Bread: italian
+	Size: 8"
+	Toasted: Yes
+	Toppings:
+		- Steak
+		- Provolone
+		- Aioli
+		- Onions
+		- Mushrooms
+	Price: $10.5
+
+Total Price: $10.5
