@@ -3,10 +3,7 @@ package com.pluralsight.UI;
 import com.pluralsight.addOns.Chips;
 import com.pluralsight.addOns.Drinks;
 import com.pluralsight.program.Order;
-import com.pluralsight.sandwich.Bread;
-import com.pluralsight.sandwich.Meat;
-import com.pluralsight.sandwich.Sandwich;
-import com.pluralsight.sandwich.Toppings;
+import com.pluralsight.sandwich.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -160,6 +157,7 @@ public class UserInterface {
         System.out.println("3. Turkey");
         System.out.println("4. Brisket");
         System.out.println("5. Deli");
+        System.out.println("6. Bacon");
         System.out.println("PRESS '0' TO END SELECTION");
 
         while (true) {
@@ -172,6 +170,7 @@ public class UserInterface {
                 case 3 -> meats.add(new Meat("Turkey"));
                 case 4 -> meats.add(new Meat("Brisket"));
                 case 5 -> meats.add(new Meat("Deli"));
+                case 6 -> meats.add(new Meat("Bacon"));
                 case 0 -> { return meats; }
                 default -> System.out.println("ERROR: Invalid Choice.");
                 }
@@ -180,15 +179,86 @@ public class UserInterface {
     }
 
     public List<Toppings> chooseCheese() {
+        List<Toppings> cheeses = new ArrayList<>();
+        System.out.println("CHEEEEEEEEEESE, Gromit:");
+        System.out.println("1. American");
+        System.out.println("2. Swiss");
+        System.out.println("3. Provolone");
+        System.out.println("4. Mozzarella");
+        System.out.println("5. Cheddar");
+        System.out.println("PRESS '0' TO END SELECTION");
 
+        while (true) {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1 -> cheeses.add(new Cheese("American"));
+                case 2 -> cheeses.add(new Cheese("Swiss"));
+                case 3 -> cheeses.add(new Cheese("Provolone"));
+                case 4 -> cheeses.add(new Cheese("Mozzarella"));
+                case 5 -> cheeses.add(new Cheese("Cheddar"));
+                case 0 -> { return cheeses; }
+                default -> System.out.println("ERROR: Invalid Choice.");
+            }
+            System.out.println("Dost thou want more (press '0' to finish):");
+        }
     }
 
     public List<Toppings> chooseSauce() {
+        List<Toppings> sauces = new ArrayList<>();
+        System.out.println("Sauces. For when you want your sandwich to be wetter:");
+        System.out.println("1. Aioli");
+        System.out.println("2. Thousand Island");
+        System.out.println("3. Oil");
+        System.out.println("4. Dijon Mustard");
+        System.out.println("5. Ranch");
+        System.out.println("PRESS '0' TO END SELECTION");
 
+        while (true) {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1 -> sauces.add(new Sauces("Aioli"));
+                case 2 -> sauces.add(new Sauces("Thousand Island"));
+                case 3 -> sauces.add(new Sauces("Oil"));
+                case 4 -> sauces.add(new Sauces("Dijon Mustard"));
+                case 5 -> sauces.add(new Sauces("Ranch"));
+                case 0 -> { return sauces; }
+                default -> System.out.println("ERROR: Invalid Choice.");
+            }
+            System.out.println("Dost thou want for more sauce (press '0' to finish):");
+        }
     }
 
     public List<Toppings> chooseRegTopping() {
+        List<Toppings> regToppings = new ArrayList<>();
+        System.out.println("Free Toppings (ya cheapskate):");
+        System.out.println("1. Lettuce (Not Shredded)");
+        System.out.println("2. Tomatoes");
+        System.out.println("3. Onions");
+        System.out.println("4. Spinach");
+        System.out.println("5. Mushrooms");
+        System.out.println("6. Pickles");
+        System.out.println("PRESS '0' TO END SELECTION");
 
+        while (true) {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1 -> regToppings.add(new RegularToppings("Lettuce"));
+                case 2 -> regToppings.add(new RegularToppings("Tomatoes"));
+                case 3 -> regToppings.add(new RegularToppings("Onions"));
+                case 4 -> regToppings.add(new RegularToppings("Spinach"));
+                case 5 -> regToppings.add(new RegularToppings("Mushrooms"));
+                case 6 -> regToppings.add(new RegularToppings("Pickles"));
+                case 0 -> { return regToppings; }
+                default -> System.out.println("ERROR: Invalid Choice.");
+            }
+            System.out.println("Dost thou want more (press '0' to finish):");
+        }
     }
 
     public Drinks chooseDrink() {
